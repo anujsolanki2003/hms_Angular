@@ -1,0 +1,203 @@
+// .login-container {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     height: 100vh;
+//     background-color: #e9ecef;
+//     font-family: "Arial", sans-serif;
+//   }
+  
+//   /* Heading styling */
+//   h2 {
+//     margin-bottom: 20px;
+//     font-size: 24px;
+//     font-weight: 600;
+//     color: #343a40;
+//   }
+  
+//   /* Form styling */
+//   form {
+//     background-color: white;
+//     border-radius: 12px;
+//     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+//     padding: 30px;
+//     width: 350px;
+//   }
+  
+//   /* Input field styling */
+//   input {
+//     width: 100%;
+//     padding: 12px;
+//     margin: 12px 0;
+//     margin-right: 35px;
+//     border: 1px solid #ced4da;
+//     border-radius: 8px;
+//     font-size: 16px;
+//     transition: border-color 0.3s;
+//   }
+  
+//   /* Input focus effect */
+//   input:focus {
+//     border-color: #007bff;
+//     outline: none;
+//   }
+  
+//   /* Button styling */
+//   button {
+//     width: 100%;
+//     padding: 12px;
+//     background-color: #007bff;
+//     color: white;
+//     border: none;
+//     border-radius: 8px;
+//     font-size: 16px;
+//     cursor: pointer;
+//     transition: background-color 0.3s, transform 0.2s;
+//   }
+  
+//   /* Button hover effect */
+//   button:hover {
+//     background-color: #0056b3;
+//     transform: translateY(-2px);
+//   }
+  
+//   /* Error message styling */
+//   .error-message {
+//     color: red;
+//     margin-top: 10px;
+//     font-size: 14px;
+//     text-align: center;
+//   }
+  
+//   /* Footer message styling */
+//   .footer-message {
+//     margin-top: 15px;
+//     font-size: 14px;
+//     color: #495057;
+//   }
+  
+//   .footer-message a {
+//     color: #007bff;
+//     text-decoration: none;
+//   }
+  
+//   .footer-message a:hover {
+//     text-decoration: underline;
+//   }
+  
+// Variables for easy theme management
+$primary-color: #007bff;
+$secondary-color: #343a40;
+$light-background: #e9ecef;
+$error-color: red;
+$border-color: #ced4da;
+$input-focus-color: $primary-color;
+
+// Mixins for reusability
+@mixin input-focus {
+  border-color: $input-focus-color;
+  outline: none;
+}
+
+@mixin button-hover {
+  background-color: darken($primary-color, 15%);
+  transform: translateY(-2px);
+}
+
+// Global styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: $light-background;
+}
+
+// Main container for login
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: $light-background;
+
+  // Heading styling
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: $secondary-color;
+  }
+
+  // Form styling
+  form {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 350px;
+  }
+
+  // Input fields styling
+  input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    margin-right: 35px;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+
+    // Input focus styling
+    &:focus {
+      @include input-focus;
+    }
+  }
+
+  // Button styling
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+
+    &:hover {
+      @include button-hover;
+    }
+  }
+
+  // Error message styling
+  .error-message {
+    color: $error-color;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  // Footer message styling
+  .footer-message {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #495057;
+
+    a {
+      color: $primary-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" class="navbar">
+  <div class="navbar-title">HealthCare Management</div>
+  <span class="spacer"></span>
+
+  <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <mat-menu #accountMenu="matMenu">
+    <div *ngFor="let role of [userRole]">
+      <button mat-menu-item>
+        <span>Role: {{ role }}</span>
+      </button>
+    </div>
+    <button mat-menu-item>
+      <span>User: {{ userEmail }}</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="onLogout()">
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
