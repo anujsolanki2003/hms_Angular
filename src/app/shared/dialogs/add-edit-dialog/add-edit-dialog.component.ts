@@ -18,9 +18,9 @@ export class AddEditDialogComponent implements OnInit {
     email: '',
     phone: '',
     dob: '',
-    Clinic_Id: 1, // Set default Clinic_Id (change as needed)
-    Practioner_Id: 0, // Set default Practioner_Id
-    user_id: 0, // Set default user_id (change as needed)
+    Clinic_Id: 1,
+    Practioner_Id: 0,
+    user_id: 0,
   };
 
   constructor(
@@ -30,7 +30,6 @@ export class AddEditDialogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Initialize the form and fill in values from the dialog data
     this.patientForm = this.fb.group({
       firstName: [this.data?.patient?.first_Name || '', Validators.required],
       middleName: [this.data?.patient?.middle_Name || '', Validators.required],
@@ -43,7 +42,6 @@ export class AddEditDialogComponent implements OnInit {
       dob: [this.data?.patient?.dob || '', Validators.required],
     });
 
-    // If there's data from the dialog, update the patient object with that data
     if (this.data?.patient) {
       this.patient = { ...this.data.patient };
     }
@@ -55,13 +53,12 @@ export class AddEditDialogComponent implements OnInit {
 
   onSave(): void {
     if (this.patientForm.valid) {
-      // Merge form values with patient data (including extra fields)
       const updatedPatient: Patient = {
         id: this.data?.patient?.id || 0,
-        Clinic_Id: this.patient.Clinic_Id, // Include Clinic_Id
-        Practioner_Id: this.patient.Practioner_Id, // Include Practioner_Id
-        user_id: this.patient.user_id, // Include user_id
-        ...this.patientForm.value, // Merge form values (firstName, middleName, etc.)
+        Clinic_Id: this.patient.Clinic_Id,
+        Practioner_Id: this.patient.Practioner_Id,
+        user_id: this.patient.user_id,
+        ...this.patientForm.value,
       };
       this.dialogRef.close(updatedPatient);
     }
